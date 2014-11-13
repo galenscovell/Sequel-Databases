@@ -1,0 +1,17 @@
+
+<section id="add">
+  <div>
+    <a href="/new">Add Player</a>
+  </div>
+</section>
+ 
+<% @players.each do |player| %>
+  <article id="player_list">
+    <p>
+      <%= player[:last_name] + ", " + player[:first_name] %>
+      <%= "(Level: #{player[:level]})" %>
+      <span><a href="/<%= player.id %>">[edit]</a></span>
+    </p>
+    <p class="meta">Joined: <%= player.join_date %></p>
+  </article>
+<% end %>
