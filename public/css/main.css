@@ -5,7 +5,70 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: url("pics/underwater1.jpg") center no-repeat;
+}
+
+.notice {
+  color: green;
+  text-align: center;
+  font-family: 'Open sans', sans-serif;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-family: 'Open sans', sans-serif;
+}
+
+
+
+/* Nav bar */
+#nav-wrap {
+  width: 100%;
+  position: fixed;
+}
+
+#nav {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  width: 100%;
+  float: left;
+  top: 0px;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  margin-bottom: 10px;
+}
+
+#nav ul {
+  width: 100%;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0; 
+}
+
+#nav li {
+  float: left;
+}
+
+#nav li a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #00B4FF;
+  transition: 0.6s;
+}
+
+#nav li a:hover {
+  background-color: hsla(229, 100%, 100%, 0.1);
+  transition: 0.3s; 
+}
+
+
+
+
+#fixed_background {
+  width: 100%;
+  height: 100%;
+  background: url("pics/background1.jpg") no-repeat center;
 }
 
 h3 {
@@ -14,29 +77,25 @@ h3 {
   text-align: center;
   font-size: 24px;
   width: 100%;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  background: rgba(10, 10, 10, 0.6);
+  margin-bottom: 20px;
+  margin-top: 0;
   color: white;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.8);
 }
 
 #main_container {
-  background: rgba(10, 10, 10, 0.7);
-  width: 80%;
-  height: 540px;
+  background: rgba(0, 0, 0, 0.8);
+  width: 85%;
+  height: 100%;
   margin: 0 auto;
-  padding: 10px;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.8);
   text-align: center;
 }
 
 #add div {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   width: 125px;
   height: 30px;
   text-align: center;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  border: 1px solid gray;
   transition: 0.4s;
   margin: 0 auto;
 }
@@ -69,4 +128,31 @@ h3 {
   font-size: 14px;
   margin: 0;
   color: white;
+}
+
+button[type=submit] {
+  position: relative;
+  font-size: 16px;
+  border: 0px solid #121212;
+  border-radius: 3px;
+  margin-top: 10px;
+  padding: 4px 20px;
+  box-shadow: 0px 3px 1px #2F3134;
+  background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  color: #00B4FF;
+  transition: 0.2s;
+}
+
+button[type=submit]:active {
+  box-shadow: 0px 0px 0px #2F3134;
+  margin-top: 13px;
+  margin-bottom: -3px;
+  transition: 0.2s;
+}
+ 
+input {
+  width: 30%;
+  padding: 5px 0;
+  line-height: 20px;
+  color: gray;
 }

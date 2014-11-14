@@ -2,16 +2,14 @@
 <div class="row">
   <form action="/create" method="post" accept-charset="utf-8">
   <div>
-    <label for="first_name">First Name:</label>
     <input type="text" name="player[first_name]"
-        id="first_name" value="<%= @player.first_name %>" />
+        id="first_name" value="<%= @player.first_name %>" placeholder="First name&hellip;" />
   </div>
   <div>
-    <label for="last_name">Last Name:</label>
     <input type="text" name="player[last_name]"
-        id="last_name" value="<%= @player.last_name %>" />
+        id="last_name" value="<%= @player.last_name %>" placeholder="Last name&hellip;" />
   </div>
-    <button type="submit">Add Player</button>
+    <button type="submit">ADD</button>
   </div>
   </form>
 </div>

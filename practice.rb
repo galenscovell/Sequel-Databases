@@ -21,8 +21,15 @@ class Player < Sequel::Model(:players)
   # Player model
 end
 
-# Player List page
+
+# Home page
 get '/' do
+  @page_title = "Home"
+  erb :home
+end
+
+# Player List page
+get '/players' do
   @page_title = "Player List"
   @players = Player.all
   if @players.empty?
@@ -44,9 +51,9 @@ post '/create' do
   @player.level = 1
   @player.join_date = Time.now.strftime('%m/%d/%y at %H:%M')
   if @player.save
-    redirect '/'
+    redirect '/', flash[:notice] = "Player added successfully."
   else
-    redirect '/new'
+    redirect '/new' , flash[:error] = "Problem with adding player."
   end
 end
 

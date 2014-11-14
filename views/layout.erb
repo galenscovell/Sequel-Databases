@@ -8,10 +8,29 @@
 </head>
 <body>
   <header>
-    <h3>Player List</h3>
+
+    <!-- Nav bar -->
+    <div id="nav_wrap">
+      <div id="nav">
+        <ul>
+          <li><a href="/">TITLE</a></li>
+          <li><a href="/players">PLAYERS</a></li>
+        </ul>
+      </div>
+    </div>
+
   </header>
+
+  <div id="fixed_background">
+
+    <div id="main_container">
+      <h3><%= @page_title %></h3>
+      <%= yield %> <!-- Insert new routes/pages -->
+    </div>
+
+  </div>
  
-  <div id="main">
+  <footer>
     <% if flash[:notice] %>
       <p class="notice"><%= flash[:notice] %>
     <% end %>
@@ -19,13 +38,6 @@
     <% if flash[:error] %>
       <p class="error"><%= flash[:error] %>
     <% end %>
-
-    <div id="main_container">
-      <%= yield %> <!-- Insert new routes/pages -->
-    </div>
-  </div>
- 
-  <footer>
   </footer>
 </body>
 </html>
