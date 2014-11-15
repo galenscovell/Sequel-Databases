@@ -3,41 +3,57 @@
 <html lang="en">
 <head>
   <meta charset="utf8">
-  <title><%= @page_title + ' | Practice' %></title>
+  <title><%= @page_title + ' | Galen' %></title>
   <link href="css/main.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header>
 
+
     <!-- Nav bar -->
-    <div id="nav_wrap">
-      <div id="nav">
-        <ul>
-          <li><a href="/">TITLE</a></li>
-          <li><a href="/players">PLAYERS</a></li>
-        </ul>
-      </div>
+    <div id="nav">
+      <ul>
+        <div id="logo"></div>
+        <li><a href="/">MAIN</a></li>
+        <li><a href="/users">USERS</a></li>
+        <li><a href="/users">RECENT</a></li>
+        <li><a href="/users">ARCHIVE</a></li>
+        <div id="contact"></div>
+      </ul>
     </div>
 
   </header>
 
-  <div id="fixed_background">
 
-    <div id="main_container">
+  <!-- Main Page Area -->
+  <div id="main_container">
+    <div id="title_div">
       <h3><%= @page_title %></h3>
-      <%= yield %> <!-- Insert new routes/pages -->
     </div>
 
+
+    <!-- Flash Messages -->
+    <div id="flash_box">
+      <% if flash[:notice] %>
+        <p id="notice"><%= flash[:notice] %></p>
+      <% end %>
+ 
+      <% if flash[:error] %>
+        <p id="error"><%= flash[:error] %></p>
+      <% end %>
+    </div>
+
+
+    <!-- Content -->
+    <div id="sub_container">
+      <br>
+      <br>
+      <!-- Insert new routes/pages -->
+      <%= yield %>
+
+    </div>
   </div>
  
-  <footer>
-    <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %>
-    <% end %>
- 
-    <% if flash[:error] %>
-      <p class="error"><%= flash[:error] %>
-    <% end %>
-  </footer>
 </body>
 </html>

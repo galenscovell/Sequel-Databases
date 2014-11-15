@@ -1,0 +1,15 @@
+
+<% @users.each do |user| %>
+  <article id="user_list">
+    <p style="font-weight: bold"><%= user[:last_name] + ", " + user[:first_name] %></p>
+    <p><%= user[:email] %></p>
+    <p style="font-size: 12px">Joined: <%= user.join_date %></p>
+    <a href="/<%= user.id %>"><img src="css/pics/edit.gif"></img></a>
+  </article>
+<% end %>
+
+<section id="add">
+  <form action="/new" method="get" accept-charset="utf-8">
+    <button type="submit">NEW USER</button>
+  </form>
+</section>

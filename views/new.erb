@@ -2,14 +2,14 @@
 <div class="row">
   <form action="/create" method="post" accept-charset="utf-8">
   <div>
-    <input type="text" name="player[first_name]"
-        id="first_name" value="<%= @player.first_name %>" placeholder="First name&hellip;" />
+    <input type="text" name="user[first_name]" id="first_name" value="<%= @user.first_name %>" placeholder="First name&hellip;" />
   </div>
   <div>
-    <input type="text" name="player[last_name]"
-        id="last_name" value="<%= @player.last_name %>" placeholder="Last name&hellip;" />
+    <input type="text" name="user[last_name]" id="last_name" value="<%= @user.last_name %>" placeholder="Last name&hellip;" />
   </div>
-    <button type="submit">ADD</button>
+  <div>
+    <input type="text" name="user[email]" id="email" value="<%= @user.email %>" placeholder="Email&hellip;" />
   </div>
+  <button type="submit">ADD</button>
   </form>
 </div>
