@@ -17,8 +17,8 @@
         <div id="logo"></div>
         <li><a href="/">MAIN</a></li>
         <li><a href="/users">USERS</a></li>
-        <li><a href="/users">RECENT</a></li>
-        <li><a href="/users">ARCHIVE</a></li>
+        <li><a href="/recent">RECENT</a></li>
+        <li><a href="/archive">ARCHIVE</a></li>
         <div id="contact"></div>
       </ul>
     </div>
@@ -37,10 +37,10 @@
     <div id="flash_box">
       <% if flash[:notice] %>
         <p id="notice"><%= flash[:notice] %></p>
-      <% end %>
- 
-      <% if flash[:error] %>
+      <% elsif flash[:error] %>
         <p id="error"><%= flash[:error] %></p>
+      <% else %>
+        <p style="color: rgba(0, 0, 0, 0)">Invisible message filling!</p>
       <% end %>
     </div>
 
