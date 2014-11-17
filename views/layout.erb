@@ -5,7 +5,7 @@
   <meta charset="utf8">
   <title><%= @page_title + ' | Galen' %></title>
   <link href="<%= url("/css/main.css")%>" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id="blocker" ></div>
@@ -20,6 +20,7 @@
         <li id="blue"><a href="/users">USERS</a></li>
         <li id="green"><a href="/recent">RECENT</a></li>
         <li id="yellow"><a href="/archive">ARCHIVE</a></li>
+        <li id="purple"><a href="/">PORTFOLIO</a></li>
         <div id="contact"></div>
       </ul>
     </div>
@@ -34,24 +35,23 @@
     </div>
 
 
-    <!-- Flash Messages -->
-    <div id="flash_box">
-      <% if flash[:notice] %>
-        <p id="notice"><%= flash[:notice] %></p>
-      <% elsif flash[:error] %>
-        <p id="error"><%= flash[:error] %></p>
-      <% else %>
-        <p style="color: rgba(0, 0, 0, 0)">Invisible message filling!</p>
-      <% end %>
-    </div>
-
-
     <!-- Content -->
     <div id="sub_container">
       <br>
       <br>
       <!-- Insert new routes/pages -->
       <%= yield %>
+
+      <!-- Flash Messages -->
+      <div id="flash_box">
+        <% if flash[:notice] %>
+          <p id="notice"><%= flash[:notice] %></p>
+        <% elsif flash[:error] %>
+          <p id="error"><%= flash[:error] %></p>
+        <% else %>
+          <p style="color: rgba(0, 0, 0, 0)">Invisible message filling!</p>
+        <% end %>
+      </div>
 
     </div>
   </div>

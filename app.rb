@@ -56,8 +56,14 @@ post '/update/:id' do
     @user.save
     redirect '/users', flash[:notice] = "User info updated."
   else
-    redirect '/edit/#{@user.id}', flash[:error] = "Unable to update user info."
+    redirect '/users', flash[:error] = "Unable to update user info."
   end
+end
+
+get '/delete/:id' do
+  @user = User[params[:id].to_i]
+  @user.delete if !@user.nil?
+  redirect '/users', flash[:notice] = "User deleted."
 end
 
 # 404 Page
