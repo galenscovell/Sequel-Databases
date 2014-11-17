@@ -12,6 +12,7 @@ unless DB.table_exists? (:users)
     String      :email, :null => false
     Integer     :level
     String      :join_date
+    String      :updated_at
   end
 end
 

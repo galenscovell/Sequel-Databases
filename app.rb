@@ -33,6 +33,7 @@ post '/create' do
   @user.set_fields(params[:user], [:first_name, :last_name, :email])
   @user.level = 1
   @user.join_date = Time.now.strftime('%m/%d/%y at %H:%M')
+  @user.updated_at = Time.now.strftime('%m/%d/%y at %H:%M')
   if @user.valid?
     @user.save
     redirect '/users', flash[:notice] = "User added successfully."
@@ -41,3 +42,25 @@ post '/create' do
   end
 end
 
+get '/edit/:id' do
+  @page_title = "EDIT USER"
+  @user = User[params[:id].to_i]
+  erb :edit
+end
+
+post '/update/:id' do
+  @user = User[params[:id].to_i]
+  @user.update_fields(params[:user], [:first_name, :last_name, :email])
+  @user.updated_at = Time.now.strftime('%m/%d/%y at %H:%M')
+  if @user.valid?
+    @user.save
+    redirect '/users', flash[:notice] = "User info updated."
+  else
+    redirect '/edit/#{@user.id}', flash[:error] = "Unable to update user info."
+  end
+end
+
+# 404 Page
+not_found do
+  halt 404, 'Page not found!'
+end

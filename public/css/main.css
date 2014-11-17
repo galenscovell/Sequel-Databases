@@ -7,6 +7,17 @@ html, body {
   height: 100%;
 }
 
+#blocker{
+  position:fixed;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  z-index:9999;
+ }
+
 
 
 /* -------------- Flash Messages --------------  */
@@ -55,7 +66,6 @@ html, body {
 }
 
 #nav li {
-  width: 100%;
   float: left;
 }
 
@@ -63,8 +73,7 @@ html, body {
   display: block;
   padding: 12px 20px;
   text-decoration: none;
-  color: #00B4FF;
-  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.8);
+  color: #000;
   transition: 0.6s;
 }
 
@@ -73,11 +82,44 @@ html, body {
   transition: 0.3s; 
 }
 
+#red {
+  background: #c0392b;
+  width: 100%;
+  transition: 0.4s;
+}
+
+#green {
+  background: #27ae60;
+  width: 100%;
+  transition: 0.4s;
+}
+
+#blue {
+  background: #2980b9;
+  width: 100%;
+  transition: 0.4s;
+}
+
+#yellow {
+  background: #f39c12;
+  width: 100%;
+  transition: 0.4s;
+}
+
 #logo {
   height: 200px;
   width: 90%;
   border: 1px solid gray;
   margin: 5px;
+}
+
+#red:hover,
+#green:hover,
+#blue:hover,
+#yellow:hover {
+  width: 110%;
+  transition: 0.4s;
+  border-radius: 3px;
 }
 
 #contact {
@@ -171,36 +213,46 @@ h3 {
   text-decoration: none;
 }
 
-button[type=submit] {
+button {
   position: relative;
   font-size: 16px;
-  border: 0px solid #121212;
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 3px;
-  margin-top: 20px;
+  margin: 10px;
   padding: 4px 20px;
   box-shadow: 0px 3px 1px #2F3134;
-  background: linear-gradient(to bottom, rgba(69,72,77,0.9) 0%,rgba(0,0,0,0.9) 100%);
-  opacity: 0.95;
+  background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
   color: #00B4FF;
-  transition: 0.2s;
 }
 
-button[type=submit]:hover {
-  opacity: 1.0;
-  transition: 0.4s
+button:hover {
+  border: 1px solid #00B4FF;
 }
 
-button[type=submit]:active {
+button:active {
   box-shadow: 0px 0px 0px #2F3134;
-  margin-top: 23px;
-  margin-bottom: -3px;
+  margin-top: 13px;
+  margin-bottom: 7px;
   transition: 0.2s;
 }
  
 input {
   width: 30%;
+  margin: 5px;
   padding: 4px 8px;
   line-height: 20px;
   font-size: 18px;
   color: #3E3F3A;
+}
+
+.back_button img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.back_button img:hover {
+  opacity: 1.0;
+  transition: 0.2s;
 }

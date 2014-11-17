@@ -4,10 +4,11 @@
 <head>
   <meta charset="utf8">
   <title><%= @page_title + ' | Galen' %></title>
-  <link href="css/main.css" rel="stylesheet">
+  <link href="<%= url("/css/main.css")%>" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <div id="blocker" ></div>
   <header>
 
 
@@ -15,10 +16,10 @@
     <div id="nav">
       <ul>
         <div id="logo"></div>
-        <li><a href="/">MAIN</a></li>
-        <li><a href="/users">USERS</a></li>
-        <li><a href="/recent">RECENT</a></li>
-        <li><a href="/archive">ARCHIVE</a></li>
+        <li id="red"><a href="/">MAIN</a></li>
+        <li id="blue"><a href="/users">USERS</a></li>
+        <li id="green"><a href="/recent">RECENT</a></li>
+        <li id="yellow"><a href="/archive">ARCHIVE</a></li>
         <div id="contact"></div>
       </ul>
     </div>
@@ -54,6 +55,7 @@
 
     </div>
   </div>
- 
+  <script src="/js/jquery-1.11.1.min.js" ></script>
+  <script src="/js/dynamic.js"></script>
 </body>
 </html>
