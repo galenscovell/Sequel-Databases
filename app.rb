@@ -16,7 +16,7 @@ get '/users' do
   @page_title = "USER LIST"
   @users = User.all
   if @users.empty?
-    flash[:error] = 'No users found. Why not add some now?'
+    flash[:error] = 'No users found. Why not add some?'
   end
   erb :users
 end
@@ -30,8 +30,7 @@ end
 
 post '/create' do
   @user = User.new
-  @user.set_fields(params[:user], [:first_name, :last_name, :email])
-  @user.level = 1
+  @user.set_fields(params[:user], [:name, :email, :password])
   @user.join_date = Time.now.strftime('%m/%d/%y at %H:%M')
   @user.updated_at = Time.now.strftime('%m/%d/%y at %H:%M')
   if @user.valid?
@@ -42,6 +41,7 @@ post '/create' do
   end
 end
 
+# Edit user page
 get '/edit/:id' do
   @page_title = "EDIT USER"
   @user = User[params[:id].to_i]
@@ -50,7 +50,7 @@ end
 
 post '/update/:id' do
   @user = User[params[:id].to_i]
-  @user.update_fields(params[:user], [:first_name, :last_name, :email])
+  @user.update_fields(params[:user], [:name, :email, :password])
   @user.updated_at = Time.now.strftime('%m/%d/%y at %H:%M')
   if @user.valid?
     @user.save
@@ -60,10 +60,21 @@ post '/update/:id' do
   end
 end
 
+# Delete user
 get '/delete/:id' do
   @user = User[params[:id].to_i]
   @user.delete if !@user.nil?
   redirect '/users', flash[:notice] = "User deleted."
+end
+
+# Recent posts page
+get '/recent' do
+  @page_title = "RECENT POSTS"
+  @posts = Post.all
+  if @posts.empty?
+    flash[:error] = "No recent posts."
+  end
+  erb :recent
 end
 
 # 404 Page

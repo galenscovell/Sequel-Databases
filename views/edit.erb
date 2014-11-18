@@ -2,16 +2,19 @@
 
 <div class="row">
   <form action="/update/<%= @user.id %>" method="post" accept-charset="utf-8">
-  <div>
-    <input type="text" name="user[first_name]" id="first_name" value="<%= @user.first_name %>" placeholder="First name&hellip;" />
-  </div>
-  <div>
-    <input type="text" name="user[last_name]" id="last_name" value="<%= @user.last_name %>" placeholder="Last name&hellip;" />
-  </div>
-  <div>
-    <input type="text" name="user[email]" id="email" value="<%= @user.email %>" placeholder="Email&hellip;" />
-  </div>
-  <button type="submit">UPDATE</button>
+    <div>
+      <input type="text" name="user[name]" id="name" value="<%= @user.name %>" placeholder="User name&hellip;" />
+    </div>
+
+    <div>
+      <input type="text" name="user[password]" id="password" value="<%= @user.password %>" placeholder="Password&hellip;" />
+    </div>
+  
+    <div>
+      <input type="text" name="user[email]" id="email" value="<%= @user.email %>" placeholder="Email&hellip;" />
+    </div>
+    
+    <button type="submit">UPDATE</button>
   </form>
   <a href="/users" class="back_button"><img src="/css/pics/back_arrow.gif"></img></a>
 </div>

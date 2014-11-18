@@ -1,7 +1,7 @@
 
 <% @users.each do |user| %>
   <article id="user_list">
-    <p style="font-weight: bold"><%= user[:last_name] + ", " + user[:first_name] %></p>
+    <p style="font-weight: bold"><%= user[:name] %></p>
     <p><%= user[:email] %></p>
     <p style="font-size: 12px">Joined: <%= user.join_date %></p>
     <p style="font-size: 12px">Updated: <%= user.updated_at %></p>

@@ -2,17 +2,37 @@
 require 'sequel'
 
 
-DB = Sequel.sqlite('users.db')
+DB = Sequel.sqlite('database.db')
 
 unless DB.table_exists? (:users)
   DB.create_table :users do
     primary_key :id
-    String      :first_name, :null => false
-    String      :last_name, :null => false
+    String      :name, :null => false
     String      :email, :null => false
-    Integer     :level
+    String      :password, :null => false
     String      :join_date
     String      :updated_at
+  end
+end
+
+unless DB.table_exists? (:posts)
+  DB.create_table :posts do
+    primary_key :id
+    Text        :content, :null => false
+    String      :post_date
+    String      :edit_date
+    String      :related
+  end
+end
+
+class Post < Sequel::Model(:posts)
+  # Post model
+  plugin :validation_helpers
+
+  def validate
+    super
+    validates_presence [:content]
+    validates_length_range 1..140, :content.size
   end
 end
 
@@ -22,8 +42,8 @@ class User < Sequel::Model(:users)
 
   def validate
     super
-    validates_presence [:first_name, :last_name, :email]
-    validates_unique([:first_name, :last_name, :email])
+    validates_presence [:name, :email, :password]
+    validates_unique(:name, :email)
     validates_format /@/, :email
   end
 end
