@@ -3,7 +3,15 @@ require 'sinatra'
 require 'sinatra/flash'
 require_relative 'models'
 
-enable :sessions
+configure do
+  enable :sessions
+end
+
+helpers do
+  def admin?
+    session[:admin]
+  end
+end
 
 # Home page
 get '/' do
