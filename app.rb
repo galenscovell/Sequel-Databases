@@ -8,16 +8,20 @@ configure do
 end
 
 helpers do
-  def admin?
-    session[:admin]
+
+  def logged_in?
+    session[:authorized]
   end
+
 end
+
 
 # Home page
 get '/' do
   @page_title = "HOME"
   erb :home
 end
+
 
 # User List page
 get '/users' do
@@ -28,6 +32,7 @@ get '/users' do
   end
   erb :users
 end
+
 
 # Add new user page
 get '/new' do
@@ -43,11 +48,19 @@ post '/create' do
   @user.updated_at = Time.now.strftime('%m/%d/%y at %H:%M')
   if @user.valid?
     @user.save
+    session[:username] = params[:user]
     redirect '/users', flash[:notice] = "User added successfully."
   else
     redirect '/new' , flash[:error] = "Unable to add user (already exists or incorrect format)."
   end
 end
+
+
+#Login page
+get '/login' do
+  erb :login
+end
+
 
 # Edit user page
 get '/edit/:id' do
@@ -68,12 +81,14 @@ post '/update/:id' do
   end
 end
 
+
 # Delete user
 get '/delete/:id' do
   @user = User[params[:id].to_i]
   @user.delete if !@user.nil?
   redirect '/users', flash[:notice] = "User deleted."
 end
+
 
 # Recent posts page
 get '/recent' do
@@ -85,7 +100,9 @@ get '/recent' do
   erb :recent
 end
 
+
 # 404 Page
 not_found do
-  halt 404, 'Page not found!'
+  @page_title = "404"
+  erb :not_found
 end

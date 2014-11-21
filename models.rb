@@ -25,16 +25,6 @@ unless DB.table_exists? (:posts)
   end
 end
 
-class Post < Sequel::Model(:posts)
-  # Post model
-  plugin :validation_helpers
-
-  def validate
-    super
-    validates_presence [:content]
-    validates_length_range 1..140, :content.size
-  end
-end
 
 class User < Sequel::Model(:users)
   # User model
@@ -45,5 +35,17 @@ class User < Sequel::Model(:users)
     validates_presence [:name, :email, :password]
     validates_unique(:name, :email)
     validates_format /@/, :email
+  end
+end
+
+
+class Post < Sequel::Model(:posts)
+  # Post model
+  plugin :validation_helpers
+
+  def validate
+    super
+    validates_presence [:content]
+    validates_length_range 1..140, :content.size
   end
 end

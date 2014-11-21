@@ -8,19 +8,33 @@
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div id="blocker" ></div>
   <header>
 
 
     <!-- Nav bar -->
     <div id="nav">
+      <div id="nav_blocker"></div>
       <ul>
-        <div id="logo"></div>
-        <li id="red"><a href="/">MAIN</a></li>
-        <li id="blue"><a href="/users">USERS</a></li>
-        <li id="green"><a href="/recent">RECENT</a></li>
-        <li id="yellow"><a href="/archive">ARCHIVE</a></li>
-        <li id="purple"><a href="/">PORTFOLIO</a></li>
+        <div id="logo"><a href="/"></a></div>
+        <li><a href="/recent">RECENT</a></li>
+        <li><a href="/topics">TOPICS</a></li>
+        <li><a href="/users">USERS</a></li>
+        <div id="login">
+          <% if logged_in? %>
+            <% erb :user_info %>
+          <% else %>
+            <form action="/login" method="post" accept-charset="utf-8">
+              <div>
+                <input type="text" class="login_user" value="" placeholder="User name&hellip;" />
+              </div>
+
+              <div>
+                <input type="text" class="login_user" value="" placeholder="Password&hellip;" />
+              </div>
+              <button type="login">LOGIN</button>
+            </form>
+          <% end %>
+        </div>
       </ul>
     </div>
 

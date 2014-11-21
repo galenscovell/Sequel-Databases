@@ -7,16 +7,6 @@ html, body {
   height: 100%;
 }
 
-#blocker{
-  position:fixed;
-  width:100%;
-  height:100%;
-  left:0;
-  top:0;
-  right:0;
-  bottom:0;
-  z-index:9999;
- }
 
 
 
@@ -57,7 +47,7 @@ html, body {
   background: #00979C;
   margin: 0;
   padding: 0;
-  box-shadow: 2px 0px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.3);
 }
 
 #nav ul {
@@ -68,6 +58,8 @@ html, body {
 
 #nav li {
   float: left;
+  width: 100%;
+  transition: 0.4s;
 }
 
 #nav li a {
@@ -77,61 +69,30 @@ html, body {
   padding: 12px 20px;
   text-decoration: none;
   color: #ffffff;
-  transition: 0.6s;
+  transition: 0.4s;
 }
 
 #nav li a:hover {
   background-color: hsla(229, 100%, 100%, 0.1);
-  transition: 0.3s; 
-}
-
-#red {
-  background: #e74c3c;
-  width: 100%;
-  transition: 0.4s;
-}
-
-#green {
-  background: #2ecc71;
-  width: 100%;
-  transition: 0.4s;
-}
-
-#blue {
-  background: #3498db;
-  width: 100%;
-  transition: 0.4s;
-}
-
-#yellow {
-  background: #f1c40f;
-  width: 100%;
-  transition: 0.4s;
-}
-
-#purple {
-  background: #8e44ad;
-  width: 100%;
-  transition: 0.4s;
-}
-
-#red:hover,
-#green:hover,
-#blue:hover,
-#yellow:hover,
-#purple:hover {
-  width: 110%;
-  transition: 0.4s;
-  border-radius: 0px 3px 3px 0px;
-  box-shadow: 2px 0px 1px rgba(0, 0, 0, 0.3);
+  transition: 0.4s; 
 }
 
 #logo {
+  position: relative;
   height: 200px;
-  width: 90%;
+  width: 92%;
   border-radius: 5px;
   margin: 6px;
   transition: 0.4s;
+}
+
+#logo a {
+  position: absolute; 
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 #logo:hover {
@@ -139,6 +100,43 @@ html, body {
   transition: 0.4s;
 }
 
+#login {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+}
+
+.login_user {
+  display: inline-block;
+  width: 90%;
+  height: 30px;
+  margin: 3px;
+}
+
+button[type="login"] {
+  position: relative;
+  font-size: 14px;
+  padding: 8px 26px;
+  margin-top: 4px;
+  border: 0px solid rgba(0, 0, 0, 0);
+  box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.7);
+  background: #005C5F;
+  color: #ffffff;
+}
+
+button[type="login"]:hover {
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
+  top: 2px;
+  cursor: pointer;
+}
+
+button[type="login"]:active {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
+  top: 6px;
+  transition: 0.2s;
+}
 
 
 /* -------------- Page Title Section --------------  */
@@ -219,7 +217,7 @@ h3 {
   text-decoration: none;
 }
 
-button {
+button[type="submit"] {
   position: relative;
   font-size: 14px;
   border: 0px solid rgba(0, 0, 0, 0);
@@ -230,19 +228,19 @@ button {
   color: #ffffff;
 }
 
-button:hover {
+button[type="submit"]:hover {
   box-shadow: 0px 4px 0px #005C5F;
   top: 2px;
   cursor: pointer;
 }
 
-button:active {
+button[type="submit"]:active {
   box-shadow: 0px 0px 0px #2F3134;
   top: 6px;
   transition: 0.2s;
 }
  
-input {
+.create_user, .edit_user {
   width: 30%;
   margin: 5px;
   padding: 4px 8px;

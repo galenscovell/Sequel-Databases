@@ -3,15 +3,15 @@
 <div class="row">
   <form action="/update/<%= @user.id %>" method="post" accept-charset="utf-8">
     <div>
-      <input type="text" name="user[name]" id="name" value="<%= @user.name %>" placeholder="User name&hellip;" />
+      <input type="text" class="edit_user" value="<%= @user.name %>" placeholder="User name&hellip;" />
     </div>
 
     <div>
-      <input type="text" name="user[password]" id="password" value="<%= @user.password %>" placeholder="Password&hellip;" />
+      <input type="text" class="edit_user" value="<%= @user.password %>" placeholder="Password&hellip;" />
     </div>
   
     <div>
-      <input type="text" name="user[email]" id="email" value="<%= @user.email %>" placeholder="Email&hellip;" />
+      <input type="text" class="edit_user" value="<%= @user.email %>" placeholder="Email&hellip;" />
     </div>
     
     <button type="submit">UPDATE</button>
