@@ -48,7 +48,6 @@ post '/create' do
   @user.updated_at = Time.now.strftime('%m/%d/%y at %H:%M')
   if @user.valid?
     @user.save
-    session[:username] = params[:user]
     redirect '/users', flash[:notice] = "User added successfully."
   else
     redirect '/new' , flash[:error] = "Unable to add user (already exists or incorrect format)."
@@ -56,9 +55,9 @@ post '/create' do
 end
 
 
-#Login page
-get '/login' do
-  erb :login
+#Login query
+post '/login' do
+  @user = User[params[:name]]
 end
 
 

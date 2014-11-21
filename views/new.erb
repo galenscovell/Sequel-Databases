@@ -4,15 +4,15 @@
   <form action="/create" method="post" accept-charset="utf-8">
 
     <div>
-      <input type="text" class="create_user" value="<%= @user.name %>" placeholder="User name&hellip;" />
+      <input type="text" class="create_user" name="user[name]" value="<%= @user.name %>" placeholder="User name&hellip;" />
     </div>
 
     <div>
-      <input type="text" class="create_user" value="<%= @user.password %>" placeholder="Password&hellip;" />
+      <input type="text" class="create_user" name="user[password]" value="<%= @user.password %>" placeholder="Password&hellip;" />
     </div>
   
     <div>
-      <input type="text" class="create_user" value="<%= @user.email %>" placeholder="Email&hellip;" />
+      <input type="text" class="create_user" name="user[email]" value="<%= @user.email %>" placeholder="Email&hellip;" />
     </div>
 
     <button type="submit">ADD</button>
