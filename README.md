@@ -1,7 +1,13 @@
-Sequel-Databases
+Sinatra-Microblogger
 ================
 
-Toying with an idea for a small web game. 
+Microblogger utilizing the Sequel ORM (Object Relational Mapper), SQLite, and the Sinatra web framework.
 
-Utilizing the Sequel Object-Relational-Mapping Toolkit and SQLite, along with Sinatra. 
-Not sure where it'll end up, but it's a bunch of fun anyway!
+Features:
+* Post creation, editing, deleting with database validation for proper formats
+* Posts featuring author, title, content, modification date, topic tags
+* Flash notice/error messages
+* Aesthetic appeal
+* Planned: Comment Section
+* Planned: Search bar
+* Planned: Tag cloud
