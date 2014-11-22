@@ -100,7 +100,7 @@ html, body {
   transition: 0.4s;
 }
 
-#login {
+#search {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -108,14 +108,14 @@ html, body {
   text-align: center;
 }
 
-.login_user {
+#search_content {
   display: inline-block;
   width: 90%;
   height: 30px;
   margin: 3px;
 }
 
-button[type="login"] {
+button[type="search"] {
   position: relative;
   font-size: 14px;
   padding: 8px 26px;
@@ -126,13 +126,13 @@ button[type="login"] {
   color: #ffffff;
 }
 
-button[type="login"]:hover {
+button[type="search"]:hover {
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.7);
   top: 2px;
   cursor: pointer;
 }
 
-button[type="login"]:active {
+button[type="search"]:active {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.7);
   top: 6px;
   transition: 0.2s;
@@ -167,7 +167,6 @@ h3 {
   position: absolute;
   background: #EAEAEA;
   width: calc(100% - 150px);
-  height: 100%;
   margin-left: 150px;
   text-align: center;
 }
@@ -184,37 +183,81 @@ h3 {
 
 
 
-/* -------------- User Pages --------------  */
-#user_list {
+/* -------------- Recent Posts Page --------------  */
+#post_list {
+  width: 100%;
   margin-top: 8px;
-  padding: 5px;
-  display: inline-block;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
-}
-
-#user_list p {
-  font-family: 'Open sans', sans-serif;
-  font-weight: normal;
+  padding: 0;
   text-align: center;
-  font-size: 14px;
-  margin: 0;
-  color: #3E3F3A;
+  font-family: 'Open sans', sans-serif;
 }
 
-#user_list img {
+#content {
+  width: 80%;
+  display: inline-block;
+}
+
+#post_content {
+  width: 98%;
+  display: inline-block;
+  height: 75px;
+  text-align: left;
+  font-size: 21px;
+  padding: 10px 10px;
+  margin: 0;
+  background-color: #C3FDFF;
+  color: #004B4E;
+  box-shadow: 0px 4px 2px #99F4F7;
+}
+
+#post_tags {
+  width: 100%;
+  font-size: 12px;
+  margin: 0;
+  margin-top: 2px;
+}
+
+#post_author {
+  width: 30%;
+  float: right;
+  text-align: right;
+  font-size: 16px;
+  margin-top: 0;
+  margin-right: 10%;
+  margin-bottom: 0;
+}
+
+#post_options {
+  width: 30%;
+  float: left;
+  text-align: left;
+  margin-top: 0;
+  margin-left: 100px;
+}
+
+#post_list img {
   width: 30px;
   height: 30px;
   background: rgba(0, 0, 0, 0.3);
   transition: 0.4s;
 }
 
-#user_list img:hover {
+#post_list img:hover {
   background: #0879C8;
   transition: 0.4s;
 }
 
-#user_list a {
+#post_list a {
   text-decoration: none;
+}
+
+#post_time {
+  width: 100%;
+  font-size: 12px;
+  display: inline-block;
+  text-align: right;
+  margin-top: 50px;
+  margin-bottom: 0;
 }
 
 button[type="submit"] {
@@ -240,13 +283,24 @@ button[type="submit"]:active {
   transition: 0.2s;
 }
  
-.create_user, .edit_user {
+.create_post, .edit_post {
   width: 30%;
   margin: 5px;
   padding: 4px 8px;
   line-height: 20px;
+  font-size: 16px;
+  color: #3E3F3A;
+  font-family: 'Open sans', sans-serif;
+}
+
+#create_content, #edit_content {
+  width: 80%;
+  height: 150px;
+  margin: 5px;
+  padding: 4px 8px;
   font-size: 18px;
   color: #3E3F3A;
+  font-family: 'Open sans', sans-serif;
 }
 
 .back_button img {

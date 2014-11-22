@@ -1,0 +1,24 @@
+
+<% @posts.each do |post| %>
+  <article id="post_list">
+    <div id="content">
+      <p id="post_time">Last Modified: <%= post.modified %></p>
+      <p id="post_content"><%= post[:content] %></p>
+      <p id="post_tags">Tags: <%= post[:tags] %></p>
+    </div>
+
+    <p id="post_author"><%= post[:username] %></p>
+
+    <div id="post_options">
+      <a href="/edit/<%= post.id %>"><img src="css/pics/edit.gif"></img></a>
+      <a href="/delete/<%= post.id %>"><img src="css/pics/delete.gif"></img></a>
+    </div>
+
+  </article>
+<% end %>
+
+<section id="add">
+  <form action="/new" method="get" accept-charset="utf-8">
+    <button type="submit">NEW POST</button>
+  </form>
+</section>

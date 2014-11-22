@@ -4,18 +4,18 @@
   <form action="/create" method="post" accept-charset="utf-8">
 
     <div>
-      <input type="text" class="create_user" name="user[name]" value="<%= @user.name %>" placeholder="User name&hellip;" />
+      <input type="text" class="create_post" name="post[username]" value="<%= @post.username %>" placeholder="Poster name&hellip;"></input>
     </div>
 
     <div>
-      <input type="text" class="create_user" name="user[password]" value="<%= @user.password %>" placeholder="Password&hellip;" />
+      <textarea id="create_content" name="post[content]" value="<%= @post.content %>" placeholder="Content&hellip;"></textarea>
     </div>
   
     <div>
-      <input type="text" class="create_user" name="user[email]" value="<%= @user.email %>" placeholder="Email&hellip;" />
+      <input type="text" class="create_post" name="post[tags]" value="<%= @post.tags %>" placeholder="Tags&hellip;"></input>
     </div>
 
-    <button type="submit">ADD</button>
+    <button type="submit">PUBLISH</button>
   </form>
   <a href="/users" class="back_button"><img src="css/pics/back_arrow.gif"></img></a>
 </div>

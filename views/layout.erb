@@ -16,25 +16,19 @@
       <div id="nav_blocker"></div>
       <ul>
         <div id="logo"><a href="/"></a></div>
+        <li><a href="/about">ABOUT</a></li>
         <li><a href="/recent">RECENT</a></li>
         <li><a href="/topics">TOPICS</a></li>
-        <li><a href="/users">USERS</a></li>
-        <div id="login">
-          <% if logged_in? %>
-            <% erb :user_info %>
-          <% else %>
-            <form action="/login" method="post" accept-charset="utf-8">
-              <div>
-                <input type="text" class="login_user" value="" placeholder="User name&hellip;" />
-              </div>
 
+        <div id="search">
+          <form action="/search" method="post" accept-charset="utf-8">
               <div>
-                <input type="text" class="login_user" value="" placeholder="Password&hellip;" />
+                <input type="text" id="search_content" value="" placeholder="Search term&hellip;" />
               </div>
-              <button type="login">LOGIN</button>
+              <button type="search">SEARCH</button>
             </form>
-          <% end %>
         </div>
+
       </ul>
     </div>
 
@@ -68,7 +62,7 @@
 
     </div>
   </div>
-  <script src="/js/jquery-1.11.1.min.js" ></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="/js/dynamic.js"></script>
 </body>
 </html>
