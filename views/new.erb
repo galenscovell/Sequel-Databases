@@ -4,7 +4,11 @@
   <form action="/create" method="post" accept-charset="utf-8">
 
     <div>
-      <input type="text" class="create_post" name="post[username]" value="<%= @post.username %>" placeholder="Poster name&hellip;"></input>
+      <input type="text" class="create_post" name="post[username]" value="<%= @post.username %>" placeholder="Author&hellip;"></input>
+    </div>
+
+    <div>
+      <input type="text" class="create_post" name="post[title]" value="<%= @post.title %>" placeholder="Brief title&hellip;"></input>
     </div>
 
     <div>

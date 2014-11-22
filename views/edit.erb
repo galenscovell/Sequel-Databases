@@ -7,6 +7,10 @@
     </div>
 
     <div>
+      <input type="text" class="edit_post" name="post[title]" value="<%= @post.title %>" placeholder="Brief title&hellip;"></input>
+    </div>
+
+    <div>
       <textarea id="edit_content" name="post[content]" value="<%= @post.content %>" placeholder="<%= @post.content %>"></textarea>
     </div>
   
@@ -16,5 +20,5 @@
     
     <button type="submit">UPDATE</button>
   </form>
-  <a href="/recent" class="back_button"><img src="/css/pics/back_arrow.gif"></img></a>
+  <a href="/post/<%= @post.id %>" class="back_button"><img src="/css/pics/back_arrow.gif"></img></a>
 </div>

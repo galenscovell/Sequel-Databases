@@ -15,14 +15,20 @@ get '/' do
 end
 
 
-# Recent posts page
+# Viewing posts
 get '/recent' do
-  @page_title = "RECENT POSTS"
+  @page_title = "ALL POSTS"
   @posts = Post.all
   if @posts.empty?
     flash[:error] = 'No posts found.'
   end
   erb :recent
+end
+
+get '/post/:id' do
+  @post = Post[params[:id].to_i]
+  @page_title = @post.title
+  erb :post
 end
 
 
@@ -35,8 +41,8 @@ end
 
 post '/create' do
   @post = Post.new
-  @post.set_fields(params[:post], [:username, :content, :tags])
-  @post.modified = Time.now.strftime('%m/%d/%y at %H:%M')
+  @post.set_fields(params[:post], [:username, :title, :content, :tags])
+  @post.modified = Time.now.strftime('%l:%M %p - %e %B %y')
   if @post.valid?
     @post.save
     redirect '/recent', flash[:notice] = "Post published successfully."
@@ -55,8 +61,8 @@ end
 
 post '/update/:id' do
   @post = Post[params[:id].to_i]
-  @post.update_fields(params[:post], [:username, :content, :tags])
-  @post.modified = Time.now.strftime('%m/%d/%y at %H:%M')
+  @post.update_fields(params[:post], [:username, :title, :content, :tags])
+  @post.modified = Time.now.strftime('%l:%M %p - %e %B %y')
   if @post.valid?
     @post.save
     redirect '/recent', flash[:notice] = "Post updated."

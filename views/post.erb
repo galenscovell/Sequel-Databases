@@ -1,0 +1,32 @@
+
+<article id="post_main">
+
+  <div id="content_container">
+    <div id="content_user">
+      <p id="post_author"><%= @post[:username] %></p>
+    </div>
+
+    <div id="content">
+      <p id="post_content"><%= @post[:content] %></p>
+      <p id="post_tags">Tags: <%= @post[:tags] %></p>
+    </div>
+
+    <div id="options_time">
+      <div id="post_options">
+        <a href="/edit/<%= @post.id %>"><img src="/css/pics/edit.gif"></img></a>
+        <a href="/delete/<%= @post.id %>"><img src="/css/pics/delete.gif"></img></a>
+      </div>
+      <p id="post_time">Last Modified: <%= @post.modified %></p>
+    </div>
+  </div>
+
+</article>
+
+<div id="comment_section">
+  <section id="add_comment">
+    <form action="/comment" method="get" accept-charset="utf-8">
+      <input type="text" id="add_comment_box" placeholder="Reply to <%= @post[:username] %>"></input>
+      <button type="submit">REPLY</button>
+    </form>
+  </section>
+</div>
