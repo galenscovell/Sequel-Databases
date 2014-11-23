@@ -6,30 +6,31 @@
   <title><%= @page_title + ' | Galen' %></title>
   <link href="<%= url("/css/main.css")%>" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body>
   <header>
 
-
     <!-- Nav bar -->
     <div id="nav">
-      <div id="nav_blocker"></div>
       <ul>
         <div id="logo"><a href="/"></a></div>
-        <li><a href="/about">ABOUT</a></li>
-        <li><a href="/recent">RECENT</a></li>
-        <li><a href="/topics">TOPICS</a></li>
+        <li><a href="/about"><span class="fa fa-binoculars"></span>  ABOUT</a></li>
+        <li><a href="/recent"><span class="fa fa-comment"></span>  RECENT</a></li>
+        <li><a href="/topics"><span class="fa fa-cloud"></span>  TOPICS</a></li>
 
         <div id="search">
           <form action="/search" method="post" accept-charset="utf-8">
-              <div>
-                <input type="text" id="search_content" value="" placeholder="Search term&hellip;" />
-              </div>
-              <button type="search">SEARCH</button>
-            </form>
+            <div>
+              <input type="text" id="search_content" value="" placeholder="Search term&hellip;" />
+            </div>
+            <button type="search">SEARCH</button>
+          </form>
         </div>
-
       </ul>
+
     </div>
 
   </header>
@@ -44,11 +45,7 @@
 
     <!-- Content -->
     <div id="sub_container">
-      <br>
-      <br>
-      <!-- Insert new routes/pages -->
-      <%= yield %>
-
+      
       <!-- Flash Messages -->
       <div id="flash_box">
         <% if flash[:notice] %>
@@ -60,7 +57,18 @@
         <% end %>
       </div>
 
+      <!-- Insert new routes/pages -->
+      <%= yield %>
+
     </div>
+
+    <div id="end_container">
+      <div id="end_details">
+        <p id="detail">Created by Galen Scovell</p>
+        <p id="attribution">Font Awesome by Dave Gandy - http://fontawesome.io</p>
+      </div>
+    </div>
+    
   </div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="/js/dynamic.js"></script>

@@ -3,19 +3,19 @@
 <div class="row">
   <form action="/update/<%= @post.id %>" method="post" accept-charset="utf-8">
     <div>
-      <input type="text" class="edit_post" name="post[username]" value="<%= @post.username %>" placeholder="<%= @post.username %>"></input>
+      <input type="text" class="edit_post" name="post[username]" value="<%= @post.username %>" placeholder="<%=h @post.username %>"></input>
     </div>
 
     <div>
-      <input type="text" class="edit_post" name="post[title]" value="<%= @post.title %>" placeholder="Brief title&hellip;"></input>
+      <input type="text" class="edit_post" name="post[title]" value="<%=h @post.title %>" placeholder="Brief title&hellip;"></input>
     </div>
 
     <div>
-      <textarea id="edit_content" name="post[content]" value="<%= @post.content %>" placeholder="<%= @post.content %>"></textarea>
+      <textarea id="edit_content" name="post[content]" value="<%=h @post.content %>" placeholder="<%= @post.content %>"></textarea>
     </div>
   
     <div>
-      <input type="text" class="edit_post" name="post[tags]" value="<%= @post.tags %>" placeholder="<%= @post.tags %>"</input>
+      <input type="text" class="edit_post" name="post[tags]" value="<%=h @post.tags %>" placeholder="<%= @post.tags %>"</input>
     </div>
     
     <button type="submit">UPDATE</button>

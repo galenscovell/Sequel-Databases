@@ -23,7 +23,7 @@ class Post < Sequel::Model(:posts)
   def validate
     super
     validates_presence [:username, :content, :title], :message => 'Empty field.'
-    validates_length_range 1..150, :content
-    validates_length_range 1..30, :title
+    validates_length_range 1..140, :content
+    validates_length_range 1..24, :title
   end
 end

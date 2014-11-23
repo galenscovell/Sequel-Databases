@@ -8,6 +8,11 @@ configure do
   enable :sessions
 end
 
+helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
+end
+
 # Home page
 get '/' do
   @page_title = "HOME"
@@ -19,9 +24,7 @@ end
 get '/recent' do
   @page_title = "ALL POSTS"
   @posts = Post.all
-  if @posts.empty?
-    flash[:error] = 'No posts found.'
-  end
+  flash.now[:error] = 'No posts found. Why not add one?' if @posts.empty?
   erb :recent
 end
 
@@ -34,7 +37,7 @@ end
 
 # Add new user page
 get '/new' do
-  @page_title = "ADD POST"
+  @page_title = "PUBLISH POST"
   @post = Post.new
   erb :new
 end
@@ -47,7 +50,7 @@ post '/create' do
     @post.save
     redirect '/recent', flash[:notice] = "Post published successfully."
   else
-    redirect '/new' , flash[:error] = "Unable to publish post (incorrect format?)."
+    redirect '/new' , flash[:error] = "Unable to publish post (incorrect format)."
   end
 end
 
@@ -67,7 +70,7 @@ post '/update/:id' do
     @post.save
     redirect '/recent', flash[:notice] = "Post updated."
   else
-    redirect '/recent', flash[:error] = "Unable to update post (incorrect format?)."
+    redirect '/recent', flash[:error] = "Unable to update post (incorrect format)."
   end
 end
 
@@ -82,6 +85,5 @@ end
 
 # 404 Page
 not_found do
-  @page_title = "404"
-  erb :not_found
+  redirect back, flash[:error] = "Whoops, that page doesn't appear to exist."
 end
