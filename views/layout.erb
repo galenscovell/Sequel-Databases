@@ -18,13 +18,13 @@
       <ul>
         <div id="logo"><a href="/"></a></div>
         <li><a href="/about"><span class="fa fa-binoculars"></span>  ABOUT</a></li>
-        <li><a href="/recent"><span class="fa fa-comment"></span>  RECENT</a></li>
+        <li><a href="/all"><span class="fa fa-comment"></span>  RECENT</a></li>
         <li><a href="/topics"><span class="fa fa-cloud"></span>  TOPICS</a></li>
 
         <div id="search">
-          <form action="/search" method="post" accept-charset="utf-8">
+          <form action="/search" method="get" accept-charset="utf-8">
             <div>
-              <input type="text" id="search_content" value="" placeholder="Search term&hellip;" />
+              <input type="text" id="search_content" name="query" placeholder="Search term&hellip;"></input>
             </div>
             <button type="search">SEARCH</button>
           </form>

@@ -13,26 +13,45 @@ helpers do
   alias_method :h, :escape_html
 end
 
+
+
 # Home page
 get '/' do
-  @page_title = "HOME"
+  @page_title = "SINATRA MICROBLOGGER"
   erb :home
 end
 
 
-# Viewing posts
-get '/recent' do
+
+# Search function
+get '/search' do
+  @page_title = "SEARCH: #{params[:query]}"
+  @posts = Post.where(Sequel.ilike(:title, "#{params[:query]}") | Sequel.ilike(:username, "#{params[:query]}"))
+  if @posts.empty?
+    flash.now[:notice] = "No posts found relating to '#{params[:query]}'. Try a different search term."
+  else
+    flash.now[:notice] = "Found the following relating to '#{params[:query]}'."
+  end
+  erb :all
+end
+
+
+
+# Viewing all posts
+get '/all' do
   @page_title = "ALL POSTS"
   @posts = Post.all
   flash.now[:error] = 'No posts found. Why not add one?' if @posts.empty?
-  erb :recent
+  erb :all
 end
 
+# Viewing individual posts
 get '/post/:id' do
   @post = Post[params[:id].to_i]
   @page_title = @post.title
   erb :post
 end
+
 
 
 # Add new user page
@@ -48,11 +67,12 @@ post '/create' do
   @post.modified = Time.now.strftime('%l:%M %p - %e %B %y')
   if @post.valid?
     @post.save
-    redirect '/recent', flash[:notice] = "Post published successfully."
+    redirect '/all', flash[:notice] = "Post published successfully."
   else
     redirect '/new' , flash[:error] = "Unable to publish post (incorrect format)."
   end
 end
+
 
 
 # Edit post page
@@ -68,22 +88,24 @@ post '/update/:id' do
   @post.modified = Time.now.strftime('%l:%M %p - %e %B %y')
   if @post.valid?
     @post.save
-    redirect '/recent', flash[:notice] = "Post updated."
+    redirect '/all', flash[:notice] = "Post updated."
   else
-    redirect '/recent', flash[:error] = "Unable to update post (incorrect format)."
+    redirect '/all', flash[:error] = "Unable to update post (incorrect format)."
   end
 end
+
 
 
 # Delete post
 get '/delete/:id' do
   @post = Post[params[:id].to_i]
   @post.delete if !@post.nil?
-  redirect '/recent', flash[:notice] = "Post deleted."
+  redirect '/all', flash[:notice] = "Post deleted."
 end
 
 
-# 404 Page
+
+# 404 Warning
 not_found do
   redirect back, flash[:error] = "Whoops, that page doesn't appear to exist."
 end
