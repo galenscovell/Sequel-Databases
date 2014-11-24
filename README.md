@@ -7,7 +7,7 @@ Features:
 * Post creation, editing, deleting with database validation for proper formats
 * Posts featuring author, title, content, modification date, topic tags
 * Flash notice/error messages
+* Search bar: Search across all post titles and authors returning list of relevant content
 * Aesthetic appeal
 * Planned: Comment Section
-* Planned: Search bar
 * Planned: Tag cloud
