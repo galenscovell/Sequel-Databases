@@ -17,11 +17,16 @@ end
 
 # Home page
 get '/' do
-  @page_title = "SINATRA MICROBLOGGER"
+  @page_title = Time.now.strftime('%e %B %y')
   erb :home
 end
 
 
+# About page
+get '/about' do
+  @page_title = "SINATRA MICROBLOGGER"
+  erb :about
+end
 
 # Search function
 get '/search' do
@@ -90,7 +95,7 @@ post '/update/:id' do
     @post.save
     redirect '/all', flash[:notice] = "Post updated."
   else
-    redirect '/all', flash[:error] = "Unable to update post (incorrect format)."
+    redirect back, flash[:error] = "Unable to update post (incorrect format)."
   end
 end
 

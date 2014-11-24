@@ -17,7 +17,6 @@ body {
 
 
 
-
 /* -------------- Nav bar --------------  */
 #nav {
   position: fixed;
@@ -62,10 +61,13 @@ body {
 
 #logo {
   position: relative;
-  height: 200px;
+  height: 160px;
   width: 92%;
   border-radius: 5px;
   margin: 6px;
+  padding-top: 60px;
+  text-align: center;
+  color: rgba(50, 230, 113, 1);
   transition: 0.4s;
 }
 
@@ -79,7 +81,7 @@ body {
 }
 
 #logo:hover {
-  background: hsla(229, 100%, 100%, 0.2);
+  background: hsla(229, 100%, 100%, 0.1);
   transition: 0.4s;
 }
 
@@ -93,10 +95,13 @@ body {
 
 #search_content {
   display: inline-block;
-  width: 90%;
+  width: 85%;
   height: 30px;
   margin: 3px;
   font-size: 16px;
+  border: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0px 6px;
 }
 
 button[type="search"] {
@@ -194,6 +199,7 @@ h3 {
   padding-top: 0;
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0px 0.75px 0.5px rgba(0, 0, 0, 0.2);
+  font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -203,13 +209,22 @@ h3 {
 #end_container {
   position: relative;
   background: gray;
-  width: 100%;
-  height: 120px;
-  margin-top: 160px;
-  padding-top: 14px;
+  width: 80%;
+  height: 60px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-top: 10px;
   padding-bottom: 14px;
-  font-family: 'Open Sans', sans-serif;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  font-family: 'Ubuntu', sans-serif;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+#end_title {
+  color: white;
+  font-size: 12px;
+  margin: 0;
 }
 
 #end_details {
@@ -217,6 +232,7 @@ h3 {
   bottom: 0;
   width: 100%;
   background: #2A3744;
+  border-radius: 0px 0px 10px 10px;
 }
 
 #detail {
@@ -413,7 +429,7 @@ button[type="submit"]:active {
   line-height: 20px;
   font-size: 16px;
   color: #3E3F3A;
-  font-family: 'Open sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   border-radius: 5px;
   color: gray;
   padding: 10px 10px;
@@ -425,7 +441,7 @@ button[type="submit"]:active {
   height: 60px;
   margin: 5px;
   font-size: 18px;
-  font-family: 'Open sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   color: gray;
   padding: 10px 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -443,4 +459,34 @@ button[type="submit"]:active {
 .back_button img:hover {
   opacity: 1.0;
   transition: 0.2s;
+}
+
+
+
+
+/* ------------ About Page ------------ */
+#about {
+  position: relative;
+  font-size: 18px;
+  margin: 0 auto;
+  width: 70%;
+}
+
+#about p {
+  text-align: left;
+  font-size: 26px;
+  margin-top: 0;
+}
+
+#about ul {
+  text-align: left;
+  list-style: none;
+}
+
+#about a {
+  display: inline-block;
+  margin-bottom: 30px;
+  text-align: center;
+  text-decoration: none;
+  color: gray;
 }
