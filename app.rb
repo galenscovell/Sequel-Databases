@@ -22,6 +22,7 @@ get '/' do
 end
 
 
+
 # About page
 get '/about' do
   @page_title = "SINATRA MICROBLOGGER"
@@ -42,7 +43,7 @@ end
 
 
 
-# Viewing all posts
+# View all posts
 get '/all' do
   @page_title = "ALL POSTS"
   @posts = Post.all
@@ -50,16 +51,33 @@ get '/all' do
   erb :all
 end
 
-# Viewing individual posts
+
+
+# View individual post
 get '/post/:id' do
   @post = Post[params[:id].to_i]
+  @comments = Comment.all
   @page_title = @post.title
   erb :post
 end
 
+# Add comment
+post '/comment/:id' do
+  @comment = Comment.new
+  @comment.set_fields(params[:comment], [:content])
+  @comment.id = params[:id]
+  @comment.date_time = Time.now.strftime('%l:%M %p - %e %B %y')
+  if @comment.valid?
+    @comment.save
+    redirect '/all', flash[:notice] = "Reply added."
+  else
+    redirect back, flash[:error] = "Unable to add reply (incorrect format)."
+  end
+end
 
 
-# Add new user page
+
+# Add new post
 get '/new' do
   @page_title = "PUBLISH POST"
   @post = Post.new
@@ -80,7 +98,7 @@ end
 
 
 
-# Edit post page
+# Edit post
 get '/edit/:id' do
   @page_title = "EDIT POST"
   @post = Post[params[:id].to_i]

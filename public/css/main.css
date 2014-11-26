@@ -380,7 +380,7 @@ h3 {
 
 #comment_section {
   width: 100%;
-  height: 100px;
+  height: 100%;
   margin-top: 40px;
   position: relative;
   background-color: #F5F5F5;
@@ -398,6 +398,49 @@ h3 {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+#comment_list {
+  display: inline-block;
+  width: 60%;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#comment_content {
+  display: inline-block;
+  text-align: left;
+  padding: 10px 10px 5px 10px;
+  width: 90%;
+  height: 80px;
+  position: relative;
+}
+
+#comment_content_main {
+  font-size: 24px;
+}
+
+#comment_content_time {
+  font-size: 12px;
+  color: gray;
+  position: absolute;
+  bottom: 6px;
+}
+
+
+#comment_extra {
+  display: inline-block;
+  text-align: left;
+  padding: 5px 10px 5px 10px;
+  width: 90%;
+  height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#comment_list p {
+  margin: 0;
+}
 
 button[type="submit"] {
   position: relative;

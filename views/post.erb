@@ -24,9 +24,24 @@
 
 <div id="comment_section">
   <section id="add_comment">
-    <form action="/comment" method="get" accept-charset="utf-8">
-      <input type="text" id="add_comment_box" placeholder="Reply to <%= @post[:username] %>"></input>
+    <form action="/comment/<%= @post.id %>" method="post" accept-charset="utf-8">
+      <input type="text" id="add_comment_box" name="comment[content]"placeholder="Reply to <%= @post[:username] %>"></input>
       <button type="submit">REPLY</button>
     </form>
   </section>
+
+  <% if !@comments.nil? %>
+    <% @comments.each do |comment| %>
+      <article id="comment_list">
+        <div id="comment_content">
+          <p id="comment_content_main"><%= comment[:content] %></p>
+          <p id="comment_content_time"><%= comment[:date_time] %></p>
+        </div>
+        <div id="comment_extra">
+          <p><%= comment[:number] %></p>
+          <p><%= comment[:id] %></p>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
 </div>
