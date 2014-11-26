@@ -8,6 +8,6 @@ Features:
 * Posts featuring author, title, content, modification date, topic tags
 * Flash notice/error messages
 * Search bar: Search across all post titles and authors returning list of relevant content
+* Comment section for each individual post
 * Aesthetic appeal
-* Planned: Comment Section
 * Planned: Tag cloud
