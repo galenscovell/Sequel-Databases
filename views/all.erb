@@ -3,8 +3,8 @@
   <article id="post_list">
 
     <div id="mini_container">
-      <p id="mini_author"><%= post[:username] %></p>
-      <p id="mini_title"><%= post[:title] %></p>
+      <p id="mini_author"><%=h post[:username] %></p>
+      <p id="mini_title"><%=h post[:title] %></p>
       <p id="mini_time"><%= post[:modified] %></p>
       <a href="/post/<%= post[:id] %>"><span></span></a>
     </div>

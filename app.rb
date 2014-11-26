@@ -69,7 +69,7 @@ post '/comment/:id' do
   @comment.date_time = Time.now.strftime('%l:%M %p - %e %B %y')
   if @comment.valid?
     @comment.save
-    redirect '/all', flash[:notice] = "Reply added."
+    redirect '/post/' + params[:id], flash[:notice] = "Reply added."
   else
     redirect back, flash[:error] = "Unable to add reply (incorrect format)."
   end

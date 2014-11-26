@@ -3,12 +3,12 @@
 
   <div id="content_container">
     <div id="content_user">
-      <p id="post_author"><%= @post[:username] %></p>
+      <p id="post_author"><%=h @post[:username] %></p>
     </div>
 
     <div id="content">
-      <p id="post_content"><%= @post[:content] %></p>
-      <p id="post_tags"><span class="fa fa-cloud"></span> <%= @post[:tags] %></p>
+      <p id="post_content"><%=h @post[:content] %></p>
+      <p id="post_tags"><span class="fa fa-cloud"></span> <%=h @post[:tags] %></p>
     </div>
 
     <div id="options_time">
@@ -35,11 +35,11 @@
     <% @comments.each do |comment| %>
       <article id="comment_list">
         <div id="comment_content">
-          <p id="comment_content_main"><%= comment[:content] %></p>
+          <p id="comment_content_main"><%=h comment[:content] %></p>
         </div>
         <div id="comment_extra">
           <p id="comment_content_time"><%= comment[:date_time] %></p>
-          <p><%= comment[:username] %></p>
+          <p><%=h comment[:username] %></p>
         </div>
       </article>
     <% end %>
