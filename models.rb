@@ -19,6 +19,7 @@ unless DB.table_exists? (:comments)
   DB.create_table :comments do
     primary_key :number
     Integer     :id
+    String      :username, :null => false
     String      :content
     String      :date_time
   end
@@ -46,6 +47,7 @@ class Comment < Sequel::Model(:comments)
 
   def validate
     super
+    validates_presence [:username]
     validates_length_range 1..200, :content
   end
 end

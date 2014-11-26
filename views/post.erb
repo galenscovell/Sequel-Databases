@@ -25,7 +25,8 @@
 <div id="comment_section">
   <section id="add_comment">
     <form action="/comment/<%= @post.id %>" method="post" accept-charset="utf-8">
-      <input type="text" id="add_comment_box" name="comment[content]"placeholder="Reply to <%= @post[:username] %>"></input>
+      <input type="text" id="add_comment_content" name="comment[content]"placeholder="Reply to <%= @post[:username] %>"></input>
+      <input type="text" id="add_comment_author" name="comment[username]"placeholder="As&hellip;"></input>
       <button type="submit">REPLY</button>
     </form>
   </section>
@@ -35,11 +36,10 @@
       <article id="comment_list">
         <div id="comment_content">
           <p id="comment_content_main"><%= comment[:content] %></p>
-          <p id="comment_content_time"><%= comment[:date_time] %></p>
         </div>
         <div id="comment_extra">
-          <p><%= comment[:number] %></p>
-          <p><%= comment[:id] %></p>
+          <p id="comment_content_time"><%= comment[:date_time] %></p>
+          <p><%= comment[:username] %></p>
         </div>
       </article>
     <% end %>

@@ -56,7 +56,7 @@ end
 # View individual post
 get '/post/:id' do
   @post = Post[params[:id].to_i]
-  @comments = Comment.all
+  @comments = Comment.where(Sequel.like(:id, params[:id]))
   @page_title = @post.title
   erb :post
 end
@@ -64,7 +64,7 @@ end
 # Add comment
 post '/comment/:id' do
   @comment = Comment.new
-  @comment.set_fields(params[:comment], [:content])
+  @comment.set_fields(params[:comment], [:content, :username])
   @comment.id = params[:id]
   @comment.date_time = Time.now.strftime('%l:%M %p - %e %B %y')
   if @comment.valid?
@@ -122,6 +122,8 @@ end
 # Delete post
 get '/delete/:id' do
   @post = Post[params[:id].to_i]
+  @comments = Comment.where(Sequel.like(:id, params[:id]))
+  @comments.delete if !@comments.nil?
   @post.delete if !@post.nil?
   redirect '/all', flash[:notice] = "Post deleted."
 end
