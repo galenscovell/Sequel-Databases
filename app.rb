@@ -15,19 +15,13 @@ end
 
 
 
-# Home page
-get '/' do
-  @page_title = Time.now.strftime('%e %B %y')
-  erb :home
-end
-
-
-
 # About page
-get '/about' do
+get '/' do
   @page_title = "SINATRA MICROBLOGGER"
   erb :about
 end
+
+
 
 # Search function
 get '/search' do

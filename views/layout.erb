@@ -17,7 +17,7 @@
     <div id="nav">
       <ul>
         <div id="logo"><span class="fa fa-leaf fa-5x"></span><a href="/"></a></div>
-        <li><a href="/about"><span class="fa fa-binoculars"></span>  ABOUT</a></li>
+        <li><a href="/"><span class="fa fa-binoculars"></span>  ABOUT</a></li>
         <li><a href="/all"><span class="fa fa-comment"></span>  RECENT</a></li>
         <li><a href="/topics"><span class="fa fa-cloud"></span>  TOPICS</a></li>
 
@@ -49,9 +49,9 @@
       <!-- Flash Messages -->
       <div id="flash_box">
         <% if flash[:notice] %>
-          <p id="notice"><%= flash[:notice] %></p>
+          <p id="notice"><%=h flash[:notice] %></p>
         <% elsif flash[:error] %>
-          <p id="error"><%= flash[:error] %></p>
+          <p id="error"><%=h flash[:error] %></p>
         <% else %>
           <p style="color: rgba(0, 0, 0, 0)">Invisible message filling!</p>
         <% end %>
