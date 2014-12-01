@@ -12,6 +12,7 @@ unless DB.table_exists? (:posts)
     String      :title
     String      :tags
     String      :modified
+    Integer     :likes
   end
 end
 
@@ -22,6 +23,8 @@ unless DB.table_exists? (:comments)
     String      :username, :null => false
     String      :content
     String      :date_time
+    Integer     :upvotes
+    Integer     :downvotes
   end
 end
 

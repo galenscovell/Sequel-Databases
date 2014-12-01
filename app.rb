@@ -61,6 +61,8 @@ post '/comment/:id' do
   @comment.set_fields(params[:comment], [:content, :username])
   @comment.id = params[:id]
   @comment.date_time = Time.now.strftime('%l:%M %p - %e %B %y')
+  @comment.upvotes = 0;
+  @comment.downvotes = 0;
   if @comment.valid?
     @comment.save
     redirect '/post/' + params[:id], flash[:notice] = "Reply added."
@@ -70,6 +72,30 @@ post '/comment/:id' do
 end
 
 
+# Upvote comment
+get '/:number/upvote' do
+  @comment = Comment[params[:number]]
+  @comment.upvotes += 1
+  @comment.save
+  redirect back, flash[:notice] = "Comment upvoted."
+end
+
+# Downvote comment
+get '/:number/downvote' do
+  @comment = Comment[params[:number]]
+  @comment.upvotes -= 1
+  @comment.save
+  redirect back, flash[:notice] = "Comment downvoted."
+end
+
+
+# Like post
+get '/post/:id/like' do
+  @post = Post[params[:id].to_i]
+  @post.likes += 1
+  @post.save
+  redirect back, flash[:notice] = "Post liked."
+end
 
 # Add new post
 get '/new' do
@@ -82,6 +108,7 @@ post '/create' do
   @post = Post.new
   @post.set_fields(params[:post], [:username, :title, :content, :tags])
   @post.modified = Time.now.strftime('%l:%M %p - %e %B %y')
+  @post.likes = 0;
   if @post.valid?
     @post.save
     redirect '/all', flash[:notice] = "Post published successfully."

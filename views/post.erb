@@ -17,6 +17,7 @@
         <a href="/delete/<%= @post.id %>"><img src="/css/pics/delete.gif"></img></a>
       </div>
       <p id="post_time">Last Modified: <%= @post.modified %></p>
+      <p id="post_likes">[<%= @post.likes %> <i class="fa fa-star-o"></i>'s] <a href="<%= @post.id %>/like"><span class="fa fa-arrow-circle-up"></span></a></p>
     </div>
   </div>
 
@@ -24,24 +25,36 @@
 
 <div id="comment_section">
   <section id="add_comment">
-    <form action="/comment/<%= @post.id %>" method="post" accept-charset="utf-8">
+    <form id="comment_form" action="/comment/<%= @post.id %>" method="post" accept-charset="utf-8">
       <input type="text" id="add_comment_content" name="comment[content]"placeholder="Reply to <%= @post[:username] %>"></input>
       <input type="text" id="add_comment_author" name="comment[username]"placeholder="As&hellip;"></input>
       <button type="submit">REPLY</button>
     </form>
   </section>
 
-  <% if !@comments.nil? %>
-    <% @comments.each do |comment| %>
-      <article id="comment_list">
-        <div id="comment_content">
-          <p id="comment_content_main"><%=h comment[:content] %></p>
-        </div>
-        <div id="comment_extra">
-          <p id="comment_content_time"><%= comment[:date_time] %></p>
-          <p><%=h comment[:username] %></p>
-        </div>
-      </article>
+  <div id="comment_refresh">
+    <% if !@comments.nil? %>
+      <% @comments.each do |comment| %>
+        <article id="comment_list">
+          <div id="comment_content">
+            <% if comment[:upvotes] >= 0 %>
+              <p style="color: green" id="comment_upvotes"><%= comment[:upvotes] %><span class="fa fa-level-up"><span></p>
+            <% else %>
+              <p style="color: red" id="comment_upvotes"><%= comment[:upvotes] %><span class="fa fa-level-down"><span></p>
+            <% end %>
+            <p id="comment_content_main"><%=h comment[:content] %></p>
+          </div>
+          <div id="comment_extra">
+            <p id="comment_content_time"><%= comment[:date_time] %></p>
+            <p><%=h comment[:username] %></p>
+            <div id="upvoting_option">
+              <a href="/<%= comment[:number] %>/upvote">Upvote</a>
+              <a href="/<%= comment[:number] %>/downvote">Downvote</a>
+            </div>
+          </div>
+        </article>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
 </div>

@@ -266,6 +266,10 @@ h3 {
   margin: 10px;
 }
 
+#mini_likes {
+  float: right;
+}
+
 #mini_author {
   font-size: 16px;
   margin: 3px;
@@ -378,6 +382,33 @@ h3 {
   transition: 0.4s;
 }
 
+#post_likes {
+  width: 120px;
+  margin: 5px;
+  font-size: 18px;
+  text-align: left;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
+  color: gray;
+}
+
+#post_likes i {
+  color: rgba(200, 180, 0, 1);
+  font-size: 24px;
+}
+
+#post_likes span {
+  color: rgba(0, 80, 180, 0.6);
+  font-size: 24px;
+  transition: 0.2s;
+}
+
+#post_likes span:hover {
+  color: rgba(0, 80, 180, 0.9);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
 #comment_section {
   width: 100%;
   height: 100%;
@@ -434,6 +465,13 @@ h3 {
   font-size: 18px;
 }
 
+#comment_upvotes {
+  float: right;
+  font-size: 12px;
+  width: 30px;
+  margin: 5px;
+}
+
 #comment_extra {
   display: inline-block;
   text-align: center;
@@ -451,6 +489,22 @@ h3 {
   position: relative;
   bottom: 0;
   text-align: center;
+}
+
+#upvoting_option {
+  font-size: 10px;
+}
+
+#upvoting_option a {
+  color: gray;
+  text-decoration: none;
+  margin: 5px;
+  transition: 0.2s;
+}
+
+#upvoting_option a:hover {
+  color: blue;
+  transition: 0.1s;
 }
 
 #comment_list p {

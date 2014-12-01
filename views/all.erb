@@ -3,6 +3,7 @@
   <article id="post_list">
 
     <div id="mini_container">
+      <p id="mini_likes"><i class="fa fa-star-o"></i><%= post[:likes] %></p>
       <p id="mini_author"><%=h post[:username] %></p>
       <p id="mini_title"><%=h post[:title] %></p>
       <p id="mini_time"><%= post[:modified] %></p>
