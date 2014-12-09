@@ -55,6 +55,8 @@ get '/post/:id' do
   erb :post
 end
 
+
+
 # Add comment
 post '/comment/:id' do
   @comment = Comment.new
@@ -71,7 +73,6 @@ post '/comment/:id' do
   end
 end
 
-
 # Upvote comment
 get '/:number/upvote' do
   @comment = Comment[params[:number]]
@@ -87,6 +88,7 @@ get '/:number/downvote' do
   @comment.save
   redirect back, flash[:notice] = "Comment downvoted."
 end
+
 
 
 # Like post
