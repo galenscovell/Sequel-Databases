@@ -12,3 +12,5 @@ Features:
 * Post 'like' count and comment upvoting/downvoting
 * Aesthetic appeal
 * Planned: Tag cloud
+
+LIVE DEMO: [ Searching for hosting! ]
