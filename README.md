@@ -10,7 +10,6 @@ Features:
 * Search bar: Search across all post titles and authors returning list of relevant content
 * Comment section for each individual post with username, content and date/time
 * Post 'like' count and comment upvoting/downvoting
-* Aesthetic appeal
-* Planned: Tag cloud
+* (Planned: Tag cloud)
 
 LIVE DEMO: [ Searching for hosting! ]
