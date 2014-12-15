@@ -10,6 +10,7 @@ Features:
 * Search bar: Search across all post titles and authors returning list of relevant content
 * Comment section for each individual post with username, content and date/time
 * Post 'like' count and comment upvoting/downvoting
-* (Planned: Tag cloud)
+* Planned: Tag cloud
+* Planned: Port this project to Ruby on Rails and PostgreSQL
 
 LIVE DEMO: [ Searching for hosting! ]
