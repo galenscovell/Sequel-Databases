@@ -11,6 +11,6 @@ Features:
 * Comment section for each individual post with username, content and date/time
 * Post 'like' count and comment upvoting/downvoting
 * Planned: Tag cloud
-* Planned: Remake with Ruby on Rails and MySQL
+* Planned: Port to MySQL and host on Heroku
 
 LIVE DEMO: [ Searching for hosting! ]
